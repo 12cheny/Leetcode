@@ -11,7 +11,4 @@ class Solution(object):
             num+=digits[i]*pow(10,len(digits)-i-1)
         num+=1
         num=str(num)
-        l=[]
-        for i in range(len(num)):
-            l.append(int(num[i]))
-        return l
+        return [int(i) for i in num]

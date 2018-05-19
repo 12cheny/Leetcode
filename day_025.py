@@ -12,6 +12,6 @@ class Solution(object):
         for i in range(len(matrix)):
             if target in matrix[i]:
                 return True
-            elif target<matrix[i][len(matrix[i])-1]:
+            elif target<matrix[i][-1]:
                 return False
         return False

@@ -1,0 +1,30 @@
+# Add Two Numbers II
+
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        stack1=[]
+        stack2=[]
+        val=0
+        while l1:
+            stack1.append(l1.val)
+            l1=l1.next
+        while l2:
+            stack2.append(l2.val)
+            l2=l2.next
+        for i in range(len(stack1)):
+            val+=pow(10,i)*stack1.pop()
+        for j in range(len(stack2)):
+            val+=pow(10,j)*stack2.pop()
+        string=str(val)
+        p=ListNode(None)
+        m=p
+        for k in range(len(string)):
+            l=ListNode(int(string[k]))
+            p.next=l
+            p=p.next
+        return m.next

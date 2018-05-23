@@ -1,0 +1,19 @@
+#Given a linked list, determine if it has a cycle in it.
+
+#可以判断是否可以一直next，但是效率较低，可以判断是否能够追上
+
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        try:
+            slow = head
+            fast = head.next
+            while slow is not fast:
+                slow = slow.next
+                fast = fast.next.next
+            return True
+        except:
+            return False

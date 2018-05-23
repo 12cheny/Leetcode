@@ -1,0 +1,20 @@
+#Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+
+#用两个结点，一个指向奇数项，一个指向偶数项
+
+class Solution(object):
+    def oddEvenList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy1 = odd = ListNode(0)
+        dummy2 = even = ListNode(0)
+        while head:
+            odd.next = head
+            even.next = head.next
+            odd = odd.next
+            even = even.next
+            head = head.next.next if even else None
+        odd.next = dummy2.next
+        return dummy1.next

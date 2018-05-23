@@ -1,0 +1,13 @@
+#Validate if a given string is numeric.
+
+#我的想法是调用命令行运行字符串内容，但是奈何没找到调用方法，看到讨论都用DFA，过程比较复杂
+
+class Solution(object):
+    def isNumber(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        try: float(s)
+        except ValueError: return False
+        else: return True

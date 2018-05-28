@@ -12,20 +12,20 @@ class Solution(object):
             k=-num
             while(k>0):
                 a=k%pow(7,i)
-                l=l+str(a/pow(7,i-1))
+                l=str(a/pow(7,i-1))+l
                 k=k-a
                 i=i+1
-            return '-'+l[::-1]
+            return '-'+l
         if num==0:
             return '0'
         else:
             k=num
             while(k>0):
                 a=k%pow(7,i)
-                l=l+str(a/pow(7,i-1))
+                l=str(a/pow(7,i-1))+l
                 k=k-a
                 i=i+1
-            return l[::-1]
+            return l
             
 #效率更高的解答，使用//运算，简化我的过程
 class Solution(object):

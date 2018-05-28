@@ -6,4 +6,4 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        return sum([i for i in sorted(nums)[::2]])
+        return sum(sorted(nums)[::2])

@@ -11,3 +11,15 @@ class Solution(object):
                 return True
             elif 3**i>n:
                 return False
+
+#使用递归效率更高
+
+class Solution(object):
+    def isPowerOfThere(self,n):
+        if n<1:
+            return False
+        if n==1:
+            return True
+        if n%3:
+            return False
+        return self.isPowerOfThere(n/3)

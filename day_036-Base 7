@@ -1,0 +1,44 @@
+#Given an integer, return its base 7 string representation.
+
+class Solution(object):
+    def convertToBase7(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        l=''
+        i=1
+        if num<0:
+            k=-num
+            while(k>0):
+                a=k%pow(7,i)
+                l=l+str(a/pow(7,i-1))
+                k=k-a
+                i=i+1
+            return '-'+l[::-1]
+        if num==0:
+            return '0'
+        else:
+            k=num
+            while(k>0):
+                a=k%pow(7,i)
+                l=l+str(a/pow(7,i-1))
+                k=k-a
+                i=i+1
+            return l[::-1]
+            
+#效率更高的解答，使用//运算，简化我的过程
+class Solution(object):
+    def convertToBase7(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        if num == 0:
+            return '0'
+        sign, output, num = (num < 0), '', -num if (num < 0) else num
+        while not (num == 0):
+            output = str(num % 7) + output
+            num = num // 7
+        return "{}{}".format('-' if sign else '',output)
+         

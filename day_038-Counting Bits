@@ -1,0 +1,25 @@
+#Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array. 
+#傻瓜式做法
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        l=[]
+        for i in range(num+1):
+            l.append(bin(i).count('1'))
+        return l
+        
+        
+#规律,0,1,0+1,1+1,0+1,1+1,0+1+1,1+1+1...
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        ret = [0]
+        while len(ret) < num+1:
+            ret.extend( [x+1 for x in ret] )
+        return ret[:num+1]

@@ -1,0 +1,10 @@
+#Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        nums.sort(key=bool, reverse=True)
+#先转化成布尔类型，再逆排序

@@ -1,0 +1,15 @@
+#Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+class Solution(object):
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        l0=nums.count(0)
+        l1=nums.count(1)
+        l2=nums.count(2)
+        nums[0:l0]=[0]*l0
+        nums[l0:l0+l1]=[1]*l1
+        nums[l0+l1:]=[2]*l2
+#找出0,1,2的数目，然后进行赋值

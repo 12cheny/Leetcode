@@ -1,0 +1,44 @@
+＃Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+
+class Solution(object):
+    def generateMatrix(self, n):
+        """
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        if not n:
+            return []
+        k=[]
+        for i in range(n):
+            k.append([0]*n)
+        direct=0
+        val=1
+        left=top=0
+        right=bottom=n-1
+        while left<=right and top<=bottom:
+            if direct==0:
+                for i in range(left,right+1):
+                    k[top][i]=val
+                    val+=1
+                top+=1
+
+            if direct==1:
+                for i in range(top,bottom+1):
+                    k[i][right]=val
+                    val+=1
+                right-=1
+
+            if direct==2:
+                for i in range(right,left-1,-1):
+                    k[bottom][i]=val
+                    val+=1
+                bottom-=1
+
+            if direct==3:
+                for i in range(bottom,top-1,-1):
+                    k[i][left]=val
+                    val+=1
+                left+=1
+            direct=(direct+1)%4
+        return k
+        
